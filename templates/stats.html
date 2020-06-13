@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COVID-19 Statistics</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/main.css') }}">
+  </head>
+  <body>
+    <div class="css-d-1 text-center container text-white" style="margin-top:50px;">
+      <p class="css-p-1" style="font-size:100px; color:#12ff81;">Compare-19</p>
+      <div class="row">
+        <div class="col-md">
+          <p class="css-p-2 pt-3" style="font-size:30px;"><span style="color:#ffb300;">Country:</span> {{ country }}</p>
+          <p class="pt-2 css-font-p">Total <span class="css-span-d">Deaths: {{ death }}</span></p>
+          <p class="css-font-p">Total <span class="css-span-a">Active Cases: {{ active }}</span></p>
+          <p class="css-font-p">Total <span class="css-span-r">Cured/recovered: {{ discharge }}</span></p>
+          <p class="css-font-p"><span style="color:red;">Total Cases:</span><span class="text-white"> {{ totalc }}</span></p>
+        </div>
+        <div class="col-md">
+          <p class="css-p-2 pt-3" style="font-size:30px;"><span style="color:#ffb300;">Country:</span> {{ country2 }}</p>
+          <p class="pt-2 css-font-p">Total <span class="css-span-d">Deaths: {{ death2 }}</span></p>
+          <p class="css-font-p">Total <span class="css-span-a">Active Cases: {{ active2 }}</span></p>
+          <p class="css-font-p">Total <span class="css-span-r">Cured/recovered: {{ discharge2 }}</span></p>
+          <p class="css-font-p"><span style="color:red;">Total Cases:</span><span class="text-white"> {{ totalc2 }}</span></p>
+        </div>
+      </div>
+      <form action="/stats" method="post" style="padding-bottom:30px">
+        <select class="dropdown-css mt-3" name="country1" style="margin-right:170px;">
+          <option value="" disabled selected>Select Country 1</option>
+          <option value="india">India</option>
+          <option value="usa">USA</option>
+        </select>
+          <input type="submit" name="submit_btn" value="Enter" class="pr-3 pl-3 mt-3">
+        <select class="dropdown-css mt-3" name="country2" style="margin-left:170px;">
+          <option value="" disabled selected>Select Country 2</option>
+          <option value="india">India</option>
+          <option value="usa">USA</option>
+        </select>
+      </form>
+      <h1 class="text-center" style="font-family:Nunito;">Comparision</h1>
+      <h2 class="text-center" style="font-family:Nunito">Deaths: {{ dcompcountry }} ({{ sign }}{{ dcompcount }})</h2>
+      <h2 class="text-center" style="font-family:Nunito">Active Cases: {{ acompcountry }} ({{ acompcount }})</h2>
+      <h2 class="text-center" style="font-family:Nunito">Recovery Percentage: {{ reccountry }} ({{ reccount }}%)</h2>
+      <h2 class="text-center" style="font-family:Nunito; padding-bottom:30px;">Total Cases: {{ totalcompcountry }} ({{ sign2 }}{{ totalcompcount }})</h2>
+    </div>
+  </body>
+</html>

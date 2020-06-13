@@ -1,0 +1,26 @@
+body{
+   background-color:#0c0f14;
+   font-family: Nunito;
+}
+.css-d-1{
+  background-color: #0c0f14;
+  border-style: solid;
+  border-color: #0c0f14;
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px black;
+}
+.css-p-1{
+  padding-top: 30px;
+}
+.css-span-d{
+  color:#3b2c85;
+}
+.css-span-a{
+  color:#219897;
+}
+.css-span-r{
+  color:#32e0c4;
+}
+.css-font-p{
+  font-size:25px;
+}
